@@ -61,6 +61,10 @@ function handler(event) {
     // Old school scrollwheel delta
     if ( orgEvent.wheelDelta ) { delta = orgEvent.wheelDelta/120; }
     if ( orgEvent.detail     ) { delta = -orgEvent.detail/3; }
+
+    if( event.wheelDelta === undefined ) {
+        event.wheelDelta = orgEvent.wheelDelta;
+    }
     
     // New school multidimensional scroll (touchpads) deltas
     deltaY = delta;
